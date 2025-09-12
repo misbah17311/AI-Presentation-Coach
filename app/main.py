@@ -1,5 +1,9 @@
 # In app/main.py
 import os
+from huggingface_hub import login
+hf_token = os.getenv("HF_TOKEN")
+if hf_token:
+    login(token=hf_token)
 import tempfile
 # ✅ Fix permission errors in Hugging Face Spaces
 # Redirect cache + config to writable directories
