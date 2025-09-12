@@ -1,6 +1,11 @@
 # In app/main.py
 import os
 import tempfile
+# ✅ Fix permission errors in Hugging Face Spaces
+# Redirect cache + config to writable directories
+os.environ["XDG_CACHE_HOME"] = "/tmp"
+os.environ["STREAMLIT_HOME"] = "/tmp/.streamlit"
+os.environ["STREAMLIT_SERVER_HEADLESS"] = "true"
 from fastapi import FastAPI, File, UploadFile
 from .agents.orchestrator import run_analysis_pipeline
 
