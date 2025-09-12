@@ -1,15 +1,21 @@
 # In app/main.py
 import os
+import tempfile
+# Use temporary writable directories
+tmp_dir = tempfile.gettempdir()
+os.environ["XDG_CACHE_HOME"] = os.path.join(tmp_dir, "hf_cache")      # Hugging Face cache
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(tmp_dir, "hf_cache")  # Transformers cache
+os.environ["HF_HOME"] = os.path.join(tmp_dir, "hf_home")              # Hugging Face home
+os.environ["STREAMLIT_HOME"] = os.path.join(tmp_dir, "streamlit")     # Streamlit config
+
+# Prevent Streamlit from opening browser
+os.environ["STREAMLIT_SERVER_HEADLESS"] = "true"
+os.environ["BROWSER"] = "none"
 from huggingface_hub import login
+
 hf_token = os.getenv("HF_TOKEN")
 if hf_token:
     login(token=hf_token)
-import tempfile
-# ✅ Fix permission errors in Hugging Face Spaces
-# Redirect cache + config to writable directories
-os.environ["XDG_CACHE_HOME"] = "/tmp"
-os.environ["STREAMLIT_HOME"] = "/tmp/.streamlit"
-os.environ["STREAMLIT_SERVER_HEADLESS"] = "true"
 from fastapi import FastAPI, File, UploadFile
 from .agents.orchestrator import run_analysis_pipeline
 
