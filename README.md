@@ -27,7 +27,7 @@ This repository is structured to provide all required deliverables for the assig
 * **Source Code:** The complete source code for the agent is located in the `app/` directory, with the Streamlit UI in `ui.py`.
 * **AI Agent Architecture Document:** A detailed breakdown of the system's multi-agent architecture, components, and interaction flows.
 * **Data Science Report:** A comprehensive report detailing the fine-tuning of the synthesis agent, including the dataset creation, training methodology, and evaluation protocol.
-* **Interaction Logs:** The complete chat history detailing the development process of this agent with the AI assistant.
+* **Interaction Logs:** The chat history detailing the development process of this agent with the AI assistant ( as the complete chat history is too long to be added i have added the relevent points of discussion and codes in the form of screenshots).
 * **Demo Video:** A screen recording showcasing the live application in use. *(Link to be added)*
 
 ## 3. Technical Architecture
